@@ -139,11 +139,11 @@ ALTER TABLE DETALLE_CARRITO
 /*
 
 
-select * from USUARIOS
-select * from CATEGORIA_PRODUCTO
-select * from PRODUCTO
+select * from USUARIOS //Backend
+select * from CATEGORIA_PRODUCTO //Backend
+select * from PRODUCTO //Backend
+select * from CARRITO_COMPRA //Backend
 select * from DETALLE_CARRITO
-select * from CARRITO_COMPRA
 
 
 

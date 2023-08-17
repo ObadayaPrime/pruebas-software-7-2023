@@ -7,12 +7,12 @@ namespace backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CategoriaProductoController : ControllerBase
+public class DetalleCarritoController : ControllerBase
 {
     private readonly IConfiguration _configuration;
     private readonly string? connectionString;
 
-    public CategoriaProductoController(IConfiguration configuration)
+    public DetalleCarritoController(IConfiguration configuration)
     {
         _configuration = configuration;
         connectionString = _configuration["SqlConnectionString:DefaultConnection"];
@@ -20,12 +20,12 @@ public class CategoriaProductoController : ControllerBase
     }
 
     [HttpGet]
-    [Route("GetAllCategoriaProducto")]
-    public IActionResult GetAllCategoriaProducto()
+    [Route("GetAllDetalleCarrito")]
+    public IActionResult GetAllDetalleCarrito()
     {
         try
         {
-            var result = CategoriaProductoServicios.ObtenerTodo<CategoriaProducto>();
+            var result = DetalleCarritoServicios.ObtenerTodo<DetalleCarrito>();
             return Ok(result);
         }
         catch (Exception ex)
@@ -36,12 +36,12 @@ public class CategoriaProductoController : ControllerBase
 
 
     [HttpGet]
-    [Route("GetCategoriaProductoById")]
-    public IActionResult GetCategoriaProductoById([FromQuery] int id)
+    [Route("GetDetalleCarritoById")]
+    public IActionResult GetDetalleCarritoById([FromQuery] int id)
     {
         try
         {
-            var result = CategoriaProductoServicios.ObtenerById<CategoriaProducto>(id);
+            var result = DetalleCarritoServicios.ObtenerById<DetalleCarrito>(id);
             return Ok(result);
         }
         catch (Exception ex)
@@ -51,12 +51,12 @@ public class CategoriaProductoController : ControllerBase
     }
 
     [HttpPost]
-    [Route("AddCategoriaProducto")]
-    public IActionResult AddCategoriaProducto(CategoriaProducto categoriaProducto)
+    [Route("AddDetalleCarrito")]
+    public IActionResult AddDetalleCarrito(DetalleCarrito detalleCarrito)
     {
         try
         {
-            var result = CategoriaProductoServicios.InsertCategoriaProducto(categoriaProducto);
+            var result = DetalleCarritoServicios.InsertDetalleCarrito(detalleCarrito);
             return Ok(result);
         }
         catch (Exception ex)
@@ -66,11 +66,11 @@ public class CategoriaProductoController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public IActionResult UpdateDeCategoriaProducto(CategoriaProducto categoriaProducto, int id)
+    public IActionResult UpdateDetalleCarrito(DetalleCarrito detalleCarrito, int id)
     {
         try
         {
-            var result = CategoriaProductoServicios.UdapteCategoriaProducto(categoriaProducto,id);
+            var result = DetalleCarritoServicios.UdaptetDetalleCarrito(detalleCarrito,id);
             return Ok(result);
         }
         catch (Exception ex)
@@ -79,12 +79,12 @@ public class CategoriaProductoController : ControllerBase
         }
     }
 
-    [HttpDelete("{id}")]
-    public IActionResult DeleteCategoriaProducto(CategoriaProducto categoriaProducto, int id)
+     [HttpDelete("{id}")]
+    public IActionResult DeleteDetalleCarrito(DetalleCarrito detalleCarrito, int id)
     {
         try
         {
-            var result = CategoriaProductoServicios.DeleteCategoriaProducto(categoriaProducto,id);
+            var result = DetalleCarritoServicios.DeleteDetalleCarrito(detalleCarrito,id);
             return Ok(result);
         }
         catch (Exception ex)
@@ -92,5 +92,4 @@ public class CategoriaProductoController : ControllerBase
             return StatusCode(500, ex.Message);
         }
     }
-
 }
