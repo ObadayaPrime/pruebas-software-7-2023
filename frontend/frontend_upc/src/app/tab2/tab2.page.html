@@ -9,9 +9,24 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">PRODUCTOS</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+
+  <ion-item>
+    <ion-input type="text" placeholder="Ingrese el Nombre Producto" [(ngModel)]="Producto"></ion-input>
+    <ion-input type="text" placeholder="Id de Categoria" [(ngModel)]="IdCategoria"></ion-input>
+    <ion-input type="text" placeholder="Usuario" [(ngModel)]="Usuario"></ion-input>
+    <ion-input type="text" placeholder="Fecha" [(ngModel)]="Fecha"></ion-input>
+    <ion-input type="text" placeholder="Estado" [(ngModel)]="Estado"></ion-input>
+    <ion-button (click)="addProducto()">Agregar Usuario</ion-button>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let item of listaProducto">
+      <b>Nombre del Producto</b>:{{item.Producto}}; <b>Id de Categoria</b>:{{item.IdCategoria}}; <b>Usuario</b>:{{item.Usuario}}; <b>Fecha</b>:{{item.Fecha}};<b>Estado</b>:{{item.Estado}}
+    </ion-item>
+  </ion-list>
+
 </ion-content>
